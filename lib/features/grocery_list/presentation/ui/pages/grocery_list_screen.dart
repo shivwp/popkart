@@ -46,61 +46,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
           ),
         ],
       ),
-     /* body: ListView(
-        children: [
-          SizedBox(height: 20.0),
-          Container(
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (context, index) {
-                return Container(
-                  height: 20.0,
-                );
-              },
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  leading: Container(
-                    height: 150.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      "assets/images/person.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  title: Text("Peter Walker", style: nameStyle),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text("Wednesday, 19 Jan ", style: dateStyle),
-                      SizedBox(
-                        height: 8.0,
-                      ),
-                      Container(
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.asset(
-                          "assets/images/person.png",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),*/
-       body: ListView(
+      body: ListView(
         children: [
           SizedBox(height: 20.0),
           Container(

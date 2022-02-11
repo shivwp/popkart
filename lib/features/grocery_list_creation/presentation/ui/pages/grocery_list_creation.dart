@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/select_date/presentation/ui/pages/select_date_screen.dart';
 
 class GroceryListCreation extends StatefulWidget {
   const GroceryListCreation({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
   late AutovalidateMode autovalidateMode;
   bool isChecked = false;
 
-  String _dropDownPurpose = "For Sale";
+  String _dropDownPurpose = "Person name";
   List<String> personName = <String>[
     "Sara Williem",
     "Pitter Williem",
@@ -61,14 +62,17 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
     return Scaffold(
       backgroundColor: PopKartAppColor.white,
       appBar: AppBar(
+        elevation: 0.0,
         backgroundColor: PopKartAppColor.appbar,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         title: Image.asset(
           'assets/images/pop_kart_logo.png',
           height: 50,
-        ),
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back),
         ),
         actions: [
           IconButton(
@@ -157,7 +161,11 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
                 isExpanded: true,
                 iconSize: 30.0,
                 style: TextStyle(color: Color(0xff003893)),
-                items: ['For Rent', 'For Sale', 'For Purchase'].map(
+                items: [
+                  "Sara Williem",
+                  "Pitter Williem",
+                  "Nora Williem",
+                ].map(
                   (val) {
                     return DropdownMenuItem<String>(
                         value: val,
@@ -282,6 +290,8 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
     if (_formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
       _formKey.currentState!.save();
+      Navigator.push(
+          context, MaterialPageRoute(builder: (ctx) => SelectDatePage()));
     } else {
       // If all data are not valid then start auto validation
       setState(() {

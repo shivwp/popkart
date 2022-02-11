@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:popkart/features/checkout/presentation/ui/checkout_screen.dart';
 import 'package:popkart/features/home/presentation/ui/pages/bottom_navigation_screen.dart';
 import 'package:popkart/features/splash_screen/presentation/ui/pages/splash_screen.dart';
 
@@ -27,6 +28,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const BottomNavigationPage());
+        home: const SplashScreen());
   }
 }

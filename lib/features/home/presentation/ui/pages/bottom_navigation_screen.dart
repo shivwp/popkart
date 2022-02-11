@@ -3,6 +3,7 @@ import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/create_profile/presentation/ui/pages/create_profile_screen.dart';
 import 'package:popkart/features/grocery_list/presentation/ui/pages/grocery_list_screen.dart';
 import 'package:popkart/features/home/presentation/ui/pages/home_screen.dart';
+import 'package:popkart/features/menu/presentation/ui/pages/menu_screen.dart';
 import 'package:popkart/features/profile/presentation/ui/pages/profile_screen.dart';
 
 class BottomNavigationPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomePage(),
-    GroceryListPage(),
+    MenuPage(),
     ProfilePage(),
   ];
 

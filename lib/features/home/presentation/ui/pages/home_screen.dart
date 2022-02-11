@@ -35,7 +35,6 @@ class _HomePageState extends State<HomePage> {
                 "You have no grocery lists at the moment",
                 style: TextStyle(
                   color: PopKartAppColor.grey,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
@@ -56,10 +55,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 "Start Creating Grocery List",
-                style: TextStyle(
-                  color: PopKartAppColor.black,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: Colors.black87, fontSize: 15.0),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
@@ -82,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     color: PopKartAppColor.appbar,
                     shape: BoxShape.circle,
                   ),
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(5),
                 ),
               )
             ],

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/features/contact_list/presentation/ui/pages/contact_list_screen.dart';
-import 'package:popkart/features/rewards_card/presentation/ui/pages/rewards_card_screen.dart';
-import 'package:popkart/features/your_friends/presentation/ui/pages/your_friends_screen.dart';
+import 'package:popkart/features/profile_features/contact_list/presentation/ui/pages/contact_list_screen.dart';
+import 'package:popkart/features/profile_features/coupon_available/presentation/ui/pages/coupon_available_screen.dart';
+import 'package:popkart/features/profile_features/item_request/presentation/ui/pages/item_request_screen.dart';
+import 'package:popkart/features/profile_features/rewards_card/presentation/ui/pages/rewards_card_screen.dart';
+import 'package:popkart/features/profile_features/your_friends/presentation/ui/pages/your_friends_screen.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -24,7 +27,18 @@ class _ProfilePageState extends State<ProfilePage> {
           'assets/images/pop_kart_logo.png',
           height: 50,
         ),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => SettingsPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.settings))
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 16.0, right: 16.0),
@@ -138,6 +152,14 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => ItemRequestPage(),
+                ),
+              );
+            },
             leading: Icon(Icons.style, size: 16.0),
             title: Text("Item Request", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
@@ -172,8 +194,16 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => CouponAvailablePage(),
+                ),
+              );
+            },
             leading: Icon(Icons.style, size: 16.0),
-            title: Text("Couple Available", style: _textStyle),
+            title: Text("Coupon Available", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
           Padding(

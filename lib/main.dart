@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:popkart/features/checkout/presentation/ui/checkout_screen.dart';
-import 'package:popkart/features/home/presentation/ui/pages/bottom_navigation_screen.dart';
 import 'package:popkart/features/splash_screen/presentation/ui/pages/splash_screen.dart';
 
 void main() {

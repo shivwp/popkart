@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/menu_favorites/presentation/ui/pages/favorites_screen.dart';
 import 'package:popkart/features/menu_my_lists/presentation/ui/pages/my_lists_screen.dart';
 import 'package:popkart/features/menu_shared_lists/presentation/ui/pages/shared_lists_screen.dart';
 
@@ -55,13 +56,7 @@ class _MenuPageState extends State<MenuPage> {
           ),
         ),
         body: TabBarView(
-          children: [
-            MyListsPage(),
-            SharedListsPage(),
-            Center(
-              child: Text("Favorites"),
-            ),
-          ],
+          children: [MyListsPage(), SharedListsPage(), FavoritesPage()],
         ),
       ),
     );

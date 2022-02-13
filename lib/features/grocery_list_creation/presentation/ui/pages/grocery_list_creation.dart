@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/select_date/presentation/ui/pages/select_date_screen.dart';
@@ -75,16 +76,12 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
           height: 50,
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: PopKartAppColor.white,
-            ),
-            onPressed: () {
-              debugPrint("Notifications");
-            },
-            color: PopKartAppColor.appbar,
-          ),
+          Badge(
+              position: BadgePosition.topEnd(top: 16, end: 14),
+              badgeColor: PopKartAppColor.greenBlue,
+              badgeContent: null,
+              child: IconButton(
+                  onPressed: () {}, icon: Icon(Icons.notifications))),
         ],
       ),
       body: Form(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/my_lists_details/presentation/ui/pages/my_lists_details_screen.dart';
 
 class MyListsPage extends StatefulWidget {
   const MyListsPage({Key? key}) : super(key: key);
@@ -34,11 +35,21 @@ class _MyListsPageState extends State<MyListsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
-                      leading: Image.asset(
-                        "assets/images/female.png",
-                        height: 45.0,
-                        width: 45.0,
-                        fit: BoxFit.cover,
+                      leading: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const MyListsDetailsPage()),
+                          );
+                        },
+                        child: Image.asset(
+                          "assets/images/female.png",
+                          height: 45.0,
+                          width: 45.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +62,14 @@ class _MyListsPageState extends State<MyListsPage> {
                                 style: TextStyle(fontSize: 17.0),
                               ),
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const MyListsDetailsPage()),
+                                    );
+                                  },
                                   icon: Icon(
                                     Icons.arrow_forward_ios_outlined,
                                     size: 20.0,

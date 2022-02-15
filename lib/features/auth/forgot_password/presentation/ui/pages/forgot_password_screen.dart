@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/auth/one_time_password/presentation/ui/pages/one_time_password_screen.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -127,6 +128,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     if (_formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
       _formKey.currentState!.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => const OneTimePasswordPage(),
+        ),
+      );
     } else {
       // If all data are not valid then start auto validation
       setState(() {

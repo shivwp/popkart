@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/auth/reset_password/presentation/ui/pages/reset_password_screen.dart';
 
 class OneTimePasswordPage extends StatefulWidget {
   const OneTimePasswordPage({Key? key}) : super(key: key);
@@ -286,6 +287,12 @@ class _OneTimePasswordPageState extends State<OneTimePasswordPage> {
     if (_formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
       _formKey.currentState!.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => ResetPasswordPage(),
+        ),
+      );
     } else {
       // If all data are not valid then start auto validation
       setState(() {

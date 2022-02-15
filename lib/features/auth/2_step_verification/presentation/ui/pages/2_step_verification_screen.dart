@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/create_profile/presentation/ui/pages/create_profile_screen.dart';
 
 class TwoStepVerificationPage extends StatefulWidget {
   const TwoStepVerificationPage({Key? key}) : super(key: key);
@@ -232,6 +233,12 @@ class _TwoStepVerificationPageState extends State<TwoStepVerificationPage> {
     if (_formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
       _formKey.currentState!.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => CreateProfilePage(),
+        ),
+      );
     } else {
       // If all data are not valid then start auto validation
       setState(() {

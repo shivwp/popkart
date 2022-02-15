@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/auth/forgot_password/presentation/ui/pages/forgot_password_screen.dart';
 import 'package:popkart/features/auth/reset_password/presentation/ui/pages/reset_password_screen.dart';
+import 'package:popkart/features/auth/sign_up/presentation/ui/pages/sign_up_screen.dart';
 import 'package:popkart/features/home/presentation/ui/pages/bottom_navigation_screen.dart';
 
 class SignInPage extends StatefulWidget {
@@ -167,7 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (ctx) => ResetPasswordPage(),
+                    builder: (ctx) => SignUpPage(),
                   ),
                 );
               },

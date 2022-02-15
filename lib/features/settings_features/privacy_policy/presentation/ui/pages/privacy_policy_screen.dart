@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class PrivacyPolicyPage extends StatefulWidget {
   const PrivacyPolicyPage({Key? key}) : super(key: key);
@@ -28,6 +29,18 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
           'assets/images/pop_kart_logo.png',
           height: 50,
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => const SettingsPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.settings))
+        ],
       ),
       body: ListView(
         children: [

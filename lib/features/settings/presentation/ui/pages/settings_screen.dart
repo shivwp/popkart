@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings_features/change_password/presentation/ui/pages/change_password_screen.dart';
+import 'package:popkart/features/settings_features/edit_profile/presentation/ui/pages/edit_profile_screen.dart';
 import 'package:popkart/features/settings_features/privacy_policy/presentation/ui/pages/privacy_policy_screen.dart';
 import 'package:popkart/features/settings_features/terms_conditions/presentation/ui/pages/terms_conditions_screen.dart';
 
@@ -49,6 +51,14 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SizedBox(height: 15.0),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const EditProfilePage(),
+                ),
+              );
+            },
             leading: Icon(
               Icons.person,
               size: 20.0,
@@ -59,6 +69,14 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const ChangePasswordPage(),
+                ),
+              );
+            },
             leading: Icon(
               Icons.lock,
               size: 20.0,
@@ -104,7 +122,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (ctx) => TermsConditionsPage(),
+                  builder: (ctx) => const TermsConditionsPage(),
                 ),
               );
             },
@@ -119,7 +137,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (ctx) => PrivacyPolicyPage(),
+                  builder: (ctx) => const PrivacyPolicyPage(),
                 ),
               );
             },

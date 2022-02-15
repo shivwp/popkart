@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/auth/2_step_verification/presentation/ui/pages/2_step_verification_screen.dart';
 import 'package:popkart/features/auth/sign_in/presentation/ui/pages/sign_in_screen.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -268,6 +269,12 @@ class _SignUpPageState extends State<SignUpPage> {
     if (_formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
       _formKey.currentState!.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => const TwoStepVerificationPage(),
+        ),
+      );
     } else {
       // If all data are not valid then start auto validation
       setState(() {

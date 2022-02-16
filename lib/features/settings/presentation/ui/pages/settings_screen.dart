@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/settings_features/change_password/presentation/ui/pages/change_password_screen.dart';
 import 'package:popkart/features/settings_features/edit_profile/presentation/ui/pages/edit_profile_screen.dart';
+import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 import 'package:popkart/features/settings_features/privacy_policy/presentation/ui/pages/privacy_policy_screen.dart';
 import 'package:popkart/features/settings_features/terms_conditions/presentation/ui/pages/terms_conditions_screen.dart';
 
@@ -93,6 +94,14 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SizedBox(height: 10.0),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const NotificationsPage(),
+                ),
+              );
+            },
             leading: Icon(
               Icons.notifications,
               size: 20.0,

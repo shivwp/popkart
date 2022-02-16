@@ -20,6 +20,7 @@ class _MenuPageState extends State<MenuPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: PopKartAppColor.appbar,
+          leading: Container(),
           title: Image.asset(
             'assets/images/pop_kart_logo.png',
             height: 50,

@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/add_items/presentation/ui/pages/add_items_screen.dart';
+import 'package:popkart/features/add_items/presentation/ui/pages/no_items_screen.dart';
 import 'package:popkart/features/select_time/presentation/ui/pages/select_time_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -296,7 +297,7 @@ class _SelectDatePageState extends State<SelectDatePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (ctx) => AddItemsPage(),
+                builder: (ctx) => NoItemsPage(),
               ),
             );
           },

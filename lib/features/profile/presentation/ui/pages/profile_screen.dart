@@ -4,6 +4,7 @@ import 'package:popkart/features/profile_features/contact_list/presentation/ui/p
 import 'package:popkart/features/profile_features/coupon_available/presentation/ui/pages/coupon_available_screen.dart';
 import 'package:popkart/features/profile_features/item_request/presentation/ui/pages/item_request_screen.dart';
 import 'package:popkart/features/profile_features/rewards_card/presentation/ui/pages/rewards_card_screen.dart';
+import 'package:popkart/features/profile_features/subscribe/presentation/ui/pages/subscribe_screen.dart';
 import 'package:popkart/features/profile_features/your_friends/presentation/ui/pages/your_friends_screen.dart';
 import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
@@ -33,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (ctx) =>const SettingsPage(),
+                    builder: (ctx) => const SettingsPage(),
                   ),
                 );
               },
@@ -97,6 +98,14 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 20.0),
           ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => SubscribePage(),
+                ),
+              );
+            },
             leading: Icon(Icons.style, size: 16.0),
             title: Text("Subscribe", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),

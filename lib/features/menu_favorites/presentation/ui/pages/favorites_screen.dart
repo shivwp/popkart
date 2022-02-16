@@ -15,15 +15,19 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Scaffold(
       body: ListView(
         children: [
+          SizedBox(height: 10.0),
           DefaultTabController(
             length: 5,
             initialIndex: 0,
             child: Column(
               children: <Widget>[
                 TabBar(
-                    labelColor: Colors.teal,
+                    labelColor: Colors.white,
                     indicatorColor: Colors.white,
-                    unselectedLabelColor: Colors.black,
+                    unselectedLabelColor: Colors.black54,
+                    indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: PopKartAppColor.lightBlue),
                     indicatorWeight: 1.0,
                     isScrollable: true,
                     tabs: [

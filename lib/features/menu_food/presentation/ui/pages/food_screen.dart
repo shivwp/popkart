@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/description_comments/presentation/ui/pages/description_comments_screen.dart';
 
 class FoodScreen extends StatefulWidget {
   const FoodScreen({Key? key}) : super(key: key);
@@ -41,16 +42,36 @@ class _FoodScreenState extends State<FoodScreen> {
                 height: 80.0,
                 color: PopKartAppColor.grey.withOpacity(0.05),
                 child: ListTile(
-                  leading: Image.asset(
-                    "assets/images/candy.png",
-                    height: 70.0,
-                    width: 70.0,
-                    fit: BoxFit.cover,
+                  leading: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ctx) => const DescriptionCommentsPage(),
+                        ),
+                      );
+                    },
+                    child: Image.asset(
+                      "assets/images/candy.png",
+                      height: 70.0,
+                      width: 70.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(name[index]),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (ctx) =>
+                                    const DescriptionCommentsPage(),
+                              ),
+                            );
+                          },
+                          child: Text(name[index])),
                       PopupMenuButton(
                         offset: Offset(0, 0),
                         icon: Icon(

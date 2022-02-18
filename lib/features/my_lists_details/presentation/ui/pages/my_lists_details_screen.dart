@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/edit_item/presentation/ui/pages/edit_item_screen.dart';
 
 class MyListsDetailsPage extends StatefulWidget {
   const MyListsDetailsPage({Key? key}) : super(key: key);
@@ -143,12 +144,26 @@ class _MyListsDetailsPageState extends State<MyListsDetailsPage> {
                                 color: PopKartAppColor.grey,
                                 size: 20.0,
                               ),
-                              onSelected: (index) {},
+                              onSelected: (index) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (ctx) => EditItemPage(),
+                                  ),
+                                );
+                              },
                               itemBuilder: (BuildContext context) {
                                 return List.generate(2, (index) {
                                   return PopupMenuItem(
                                     child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (ctx) => EditItemPage(),
+                                            ),
+                                          );
+                                        },
                                         child: Text(popUpName[index])),
                                   );
                                 });

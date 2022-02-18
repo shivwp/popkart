@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class SubscribePage extends StatefulWidget {
   const SubscribePage({Key? key}) : super(key: key);
@@ -49,7 +50,14 @@ class _SubscribePageState extends State<SubscribePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => SettingsPage(),
+                ),
+              );
+            },
             icon: Icon(Icons.settings),
           ),
         ],

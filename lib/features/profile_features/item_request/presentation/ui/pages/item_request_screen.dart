@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/reject_accept/presentation/ui/pages/reject_accept_screen.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class ItemRequestPage extends StatefulWidget {
   const ItemRequestPage({Key? key}) : super(key: key);
@@ -42,7 +44,14 @@ class _ItemRequestPageState extends State<ItemRequestPage> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => SettingsPage(),
+                  ),
+                );
+              },
               icon: Icon(Icons.settings),
             ),
           ],
@@ -92,14 +101,24 @@ class _ItemRequestPageState extends State<ItemRequestPage> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.03,
                             ),
-                            Container(
-                              height: 60,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.asset(
-                                image[index],
-                                fit: BoxFit.cover,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (ctx) => RejectAcceptPage(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  image[index],
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                             SizedBox(

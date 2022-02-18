@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/add_item_alert.dart';
 import 'package:popkart/features/item_increment/presentation/ui/pages/item_increment_screen.dart';
 
 class AddItemsPage extends StatefulWidget {
@@ -10,6 +14,15 @@ class AddItemsPage extends StatefulWidget {
 }
 
 class _AddItemsPageState extends State<AddItemsPage> {
+  List<Exercise> exercises = [
+    Exercise(name: 'Arnolds Country White'),
+    Exercise(name: 'Natures Own Honey Wheat'),
+    Exercise(name: 'Arnolds Country White'),
+    Exercise(name: 'Natures Own Honey Wheat'),
+    Exercise(name: 'Arnolds Country White'),
+    Exercise(name: 'Natures Own Honey Wheat'),
+    Exercise(name: 'Natures Own Honey Wheat')
+  ];
   List<String> images = [
     "assets/images/candy.png",
     "assets/images/candy.png",
@@ -26,6 +39,22 @@ class _AddItemsPageState extends State<AddItemsPage> {
     color: PopKartAppColor.grey,
     fontSize: 14.0,
   );
+  File? pickedImage;
+
+  pickImage(ImageSource imageType) async {
+    try {
+      final photo = await ImagePicker().pickImage(source: imageType);
+      if (photo == null) return;
+      final tempImage = File(photo.path);
+      setState(() {
+        pickedImage = tempImage;
+      });
+
+      Navigator.pop(context);
+    } catch (error) {
+      debugPrint(error.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +94,69 @@ class _AddItemsPageState extends State<AddItemsPage> {
                   Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                title: TextFormField(
+                                  cursorColor: Colors.grey,
+                                  onChanged: (value) {
+                                    setState(() {});
+                                  },
+                                  onTap: () {},
+                                  decoration: InputDecoration(
+                                    prefixIcon: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                                    hintText: "Bread",
+                                    hintStyle: hintStyle,
+                                    suffixIcon: IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: Icon(Icons.clear)),
+                                    contentPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                                content: SingleChildScrollView(
+                                  child: Container(
+                                    width: double.maxFinite,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        ConstrainedBox(
+                                          constraints: BoxConstraints(
+                                            maxHeight: MediaQuery.of(context).size.height * 0.5,
+                                          ),
+                                          child: ListView.builder(
+                                              shrinkWrap: true,
+                                              itemCount: exercises.length,
+                                              itemBuilder: (BuildContext context, int index) {
+                                                return ListTile(
+                                                  leading: Image.asset("assets/images/candy.png"),
+                                                  title: Text(
+                                                    exercises[index].name,
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+                                                  ),
+                                                );
+                                              }),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                           icon: Icon(
                             Icons.search,
                             size: 20.0,

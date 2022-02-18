@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class ContactListPage extends StatefulWidget {
   const ContactListPage({Key? key}) : super(key: key);
@@ -54,7 +55,14 @@ class _ContactListPageState extends State<ContactListPage> {
             ),
           ],
         ),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        actions: [IconButton(onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => SettingsPage(),
+            ),
+          );
+        }, icon: Icon(Icons.settings))],
       ),
       body: ListView(
         shrinkWrap: true,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/profile_features/add_friends/presentation/ui/pages/add_friends_screen.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class YourFriendsPage extends StatefulWidget {
   const YourFriendsPage({Key? key}) : super(key: key);
@@ -55,7 +56,14 @@ class _YourFriendsPageState extends State<YourFriendsPage> {
             ),
           ],
         ),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        actions: [IconButton(onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => SettingsPage(),
+            ),
+          );
+        }, icon: Icon(Icons.settings))],
       ),
       body: ListView(
         shrinkWrap: true,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class CouponAvailablePage extends StatefulWidget {
   const CouponAvailablePage({Key? key}) : super(key: key);
@@ -37,7 +38,14 @@ class _CouponAvailablePageState extends State<CouponAvailablePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => SettingsPage(),
+                ),
+              );
+            },
             icon: Icon(Icons.settings),
           ),
         ],

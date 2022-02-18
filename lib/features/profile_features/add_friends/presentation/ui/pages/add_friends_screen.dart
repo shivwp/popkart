@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 
 class AddFriendsPage extends StatefulWidget {
   const AddFriendsPage({Key? key}) : super(key: key);
@@ -38,7 +39,14 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => SettingsPage(),
+                ),
+              );
+            },
             icon: Icon(Icons.settings),
           ),
         ],

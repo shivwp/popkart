@@ -34,13 +34,21 @@ class _ItemRequestPageState extends State<ItemRequestPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: PopKartAppColor.appbar,
-          title: Image.asset(
-            'assets/images/pop_kart_logo.png',
-            height: 50,
-          ),
+          centerTitle: false,
+          titleSpacing: 0.0,
           leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back, size: 25.0),
+          ),
+          title: Transform(
+            // You can forcefully translate values left side using Transform
+            transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+            child: Image.asset(
+              'assets/images/pop_kart_logo.png',
+              height: 45,
+            ),
           ),
           actions: [
             IconButton(
@@ -55,24 +63,6 @@ class _ItemRequestPageState extends State<ItemRequestPage> {
               icon: Icon(Icons.settings),
             ),
           ],
-          bottom: TabBar(
-            labelColor: PopKartAppColor.darkBlue,
-            labelStyle: TextStyle(
-              fontSize: 18,
-              // fontWeight: FontWeight.bold,
-            ),
-            unselectedLabelColor: PopKartAppColor.white,
-            indicatorColor: PopKartAppColor.darkBlue,
-            indicatorWeight: 3,
-            tabs: [
-              Tab(
-                text: "Pending",
-              ),
-              Tab(
-                text: "Rejected",
-              ),
-            ],
-          ),
         ),
         body: TabBarView(children: [
           ListView(

@@ -19,11 +19,17 @@ class _NoItemsPageState extends State<NoItemsPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, size: 25.0),
         ),
-        title: Image.asset(
-          'assets/images/pop_kart_logo.png',
-          height: 50,
+        centerTitle: false,
+        titleSpacing: 0.0,
+        title: Transform(
+          // You can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+          child: Image.asset(
+            'assets/images/pop_kart_logo.png',
+            height: 45,
+          ),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70.0),

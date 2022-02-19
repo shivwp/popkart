@@ -37,32 +37,36 @@ class _ContactListPageState extends State<ContactListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: PopKartAppColor.appbar,
-        title: Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: Icon(Icons.arrow_back)),
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Image.asset(
-                'assets/images/pop_kart_logo.png',
-                height: 50,
-              ),
-            ),
-          ],
+        centerTitle: false,
+        titleSpacing: 0.0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back, size: 25.0),
         ),
-        actions: [IconButton(onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (ctx) => SettingsPage(),
-            ),
-          );
-        }, icon: Icon(Icons.settings))],
+        title: Transform(
+          // You can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+          child: Image.asset(
+            'assets/images/pop_kart_logo.png',
+            height: 45,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => SettingsPage(),
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
+        ],
       ),
       body: ListView(
         shrinkWrap: true,

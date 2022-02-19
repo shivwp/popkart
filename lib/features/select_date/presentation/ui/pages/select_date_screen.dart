@@ -54,11 +54,20 @@ class _SelectDatePageState extends State<SelectDatePage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            size: 25.0,
+          ),
         ),
-        title: Image.asset(
-          'assets/images/pop_kart_logo.png',
-          height: 50,
+        centerTitle: false,
+        titleSpacing: 0.0,
+        title: Transform(
+          // You can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+          child: Image.asset(
+            'assets/images/pop_kart_logo.png',
+            height: 45,
+          ),
         ),
         actions: [
           Badge(
@@ -280,7 +289,7 @@ class _SelectDatePageState extends State<SelectDatePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: TableCalendar(
               firstDay: DateTime.utc(2010, 10, 16),
               lastDay: DateTime.utc(2030, 3, 14),

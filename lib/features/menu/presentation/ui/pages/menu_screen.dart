@@ -21,9 +21,15 @@ class _MenuPageState extends State<MenuPage> {
         appBar: AppBar(
           backgroundColor: PopKartAppColor.appbar,
           leading: Container(),
-          title: Image.asset(
-            'assets/images/pop_kart_logo.png',
-            height: 50,
+          centerTitle: false,
+          titleSpacing: 0.0,
+          title: Transform(
+            // You can forcefully translate values left side using Transform
+            transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+            child: Image.asset(
+              'assets/images/pop_kart_logo.png',
+              height: 45,
+            ),
           ),
           actions: [
             IconButton(

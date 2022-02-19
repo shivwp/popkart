@@ -62,15 +62,24 @@ class _AddItemsPageState extends State<AddItemsPage> {
       backgroundColor: PopKartAppColor.white,
       appBar: AppBar(
         backgroundColor: PopKartAppColor.appbar,
-        title: Image.asset(
-          'assets/images/pop_kart_logo.png',
-          height: 50,
-        ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            size: 25.0,
+          ),
+        ),
+        centerTitle: false,
+        titleSpacing: 0.0,
+        title: Transform(
+          // You can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+          child: Image.asset(
+            'assets/images/pop_kart_logo.png',
+            height: 45,
+          ),
         ),
       ),
       body: ListView(
@@ -105,7 +114,9 @@ class _AddItemsPageState extends State<AddItemsPage> {
                                   },
                                   onTap: () {},
                                   decoration: InputDecoration(
-                                    prefixIcon: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                                    prefixIcon: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(Icons.search)),
                                     hintText: "Bread",
                                     hintStyle: hintStyle,
                                     suffixIcon: IconButton(
@@ -113,18 +124,22 @@ class _AddItemsPageState extends State<AddItemsPage> {
                                           Navigator.pop(context);
                                         },
                                         icon: Icon(Icons.clear)),
-                                    contentPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        vertical: 4, horizontal: 4),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                   ),
                                 ),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
                                 content: SingleChildScrollView(
                                   child: Container(
                                     width: double.maxFinite,
@@ -133,14 +148,20 @@ class _AddItemsPageState extends State<AddItemsPage> {
                                       children: <Widget>[
                                         ConstrainedBox(
                                           constraints: BoxConstraints(
-                                            maxHeight: MediaQuery.of(context).size.height * 0.5,
+                                            maxHeight: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.5,
                                           ),
                                           child: ListView.builder(
                                               shrinkWrap: true,
                                               itemCount: exercises.length,
-                                              itemBuilder: (BuildContext context, int index) {
+                                              itemBuilder:
+                                                  (BuildContext context,
+                                                      int index) {
                                                 return ListTile(
-                                                  leading: Image.asset("assets/images/candy.png"),
+                                                  leading: Image.asset(
+                                                      "assets/images/candy.png"),
                                                   title: Text(
                                                     exercises[index].name,
                                                     style: TextStyle(
@@ -332,25 +353,35 @@ class _AddItemsPageState extends State<AddItemsPage> {
               ),
             ),
           ),
-        ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (ctx) => ItemIncrementPage()));
-          },
-          child: Text("Next"),
-          style: ElevatedButton.styleFrom(
-            elevation: 2.0,
-            shape: StadiumBorder(),
-            padding: EdgeInsets.all(18),
-            primary: PopKartAppColor.greenBlue,
-            // <-- Button color
-            onPrimary: PopKartAppColor.black, // <-- Splash color
+          SizedBox(height: 40.0),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => ItemIncrementPage()));
+              },
+              child: Text("Next"),
+              style: ElevatedButton.styleFrom(
+                elevation: 2.0,
+                shape: StadiumBorder(),
+                padding: EdgeInsets.all(18),
+                primary: PopKartAppColor.greenBlue,
+                // <-- Button color
+                onPrimary: PopKartAppColor.black, // <-- Splash color
+              ),
+            ),
           ),
-        ),
+          SizedBox(height: 20.0),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.2,
+            child: Image.asset(
+              "assets/images/banner_ad.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
       ),
     );
   }

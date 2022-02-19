@@ -25,8 +25,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     labelColor: Colors.white,
                     indicatorColor: Colors.white,
                     unselectedLabelColor: Colors.black54,
+
                     indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.0),
+                        borderRadius: BorderRadius.circular(20.0),
                         color: PopKartAppColor.lightBlue),
                     indicatorWeight: 1.0,
                     isScrollable: true,

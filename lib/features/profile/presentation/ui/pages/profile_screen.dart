@@ -22,11 +22,16 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: PopKartAppColor.appbar,
-        title: Image.asset(
-          'assets/images/pop_kart_logo.png',
-          height: 50,
+        centerTitle: false,
+        titleSpacing: 0.0,
+        title: Transform(
+          // You can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-12.0, 0.0, 0.0),
+          child: Image.asset(
+            'assets/images/pop_kart_logo.png',
+            height: 45,
+          ),
         ),
         actions: [
           IconButton(
@@ -106,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.style, size: 20.0),
             title: Text("Subscribe", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
@@ -127,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.style, size: 20.0),
             title: Text("Reward Card", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
@@ -148,7 +153,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.person_add, size: 20.0),
             title: Text("Your Friends", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
@@ -169,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.shopping_basket, size: 20.0),
             title: Text("Item Request", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
@@ -190,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.perm_contact_calendar_sharp, size: 20.0),
             title: Text("Contact list", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),
@@ -211,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               );
             },
-            leading: Icon(Icons.style, size: 16.0),
+            leading: Icon(Icons.style, size: 20.0),
             title: Text("Coupon Available", style: _textStyle),
             trailing: Icon(Icons.arrow_forward_ios_outlined, size: 16.0),
           ),

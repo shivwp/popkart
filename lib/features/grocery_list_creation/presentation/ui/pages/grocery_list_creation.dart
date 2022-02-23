@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/select_date/presentation/ui/pages/select_date_screen.dart';
+import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 
 class GroceryListCreation extends StatefulWidget {
   const GroceryListCreation({Key? key}) : super(key: key);
@@ -87,7 +88,14 @@ class _GroceryListCreationState extends State<GroceryListCreation> {
               badgeColor: PopKartAppColor.greenBlue,
               badgeContent: null,
               child: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.notifications))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ctx) => NotificationsPage(),
+                        ));
+                  },
+                  icon: Icon(Icons.notifications))),
         ],
       ),
       body: Form(

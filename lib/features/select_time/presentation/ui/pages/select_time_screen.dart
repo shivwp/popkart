@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:popkart/features/add_items/presentation/ui/pages/add_items_screen.dart';
+import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 
 class SelectTimePage extends StatefulWidget {
   const SelectTimePage({Key? key}) : super(key: key);
@@ -46,7 +47,14 @@ class _SelectTimePageState extends State<SelectTimePage> {
               badgeColor: PopKartAppColor.greenBlue,
               badgeContent: null,
               child: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.notifications))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ctx) => NotificationsPage(),
+                        ));
+                  },
+                  icon: Icon(Icons.notifications))),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70.0),

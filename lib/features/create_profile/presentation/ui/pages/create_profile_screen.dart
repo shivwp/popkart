@@ -200,6 +200,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
               padding: const EdgeInsets.only(left: 50.0, right: 50.0),
               child: TextFormField(
                 cursorColor: PopKartAppColor.white,
+                initialValue: "John Doe",
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Enter your name';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
+import 'package:popkart/core/widgets/rounded_container.dart';
 import 'package:popkart/features/auth/sign_in/presentation/ui/pages/sign_in_screen.dart';
 import 'package:popkart/features/auth/sign_up/presentation/ui/pages/sign_up_screen.dart';
 
@@ -47,135 +48,137 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             },
             icon: Icon(Icons.arrow_back)),
       ),
-      body: Form(
-        key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: ListView(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 6.5,
-            ),
-            Center(
-              child: Text(
-                "Reset Password",
-                style: resetPasswordStyle,
+      body: RoundedContainer(
+        child: Form(
+          key: _formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: ListView(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 6.5,
               ),
-            ),
-            SizedBox(height: 10.0),
-            Center(
-              child: Text(
-                "What would you like your new\n password to be?",
-                style: TextStyle(color: PopKartAppColor.white, fontSize: 14.0),
+              Center(
+                child: Text(
+                  "Reset Password",
+                  style: resetPasswordStyle,
+                ),
               ),
-            ),
-            SizedBox(height: 40.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Text(
-                "New Password",
-                style: style,
+              SizedBox(height: 10.0),
+              Center(
+                child: Text(
+                  "What would you like your new\n password to be?",
+                  style: TextStyle(color: PopKartAppColor.white, fontSize: 14.0),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0, right: 25.0),
-              child: TextFormField(
-                obscureText: _newPasswordVisible,
-                cursorColor: PopKartAppColor.white,
-                style: TextStyle(color: PopKartAppColor.white),
-                controller: _newPasswordEditingController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please new enter password';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: PopKartAppColor.white),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: PopKartAppColor.white),
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _newPasswordVisible
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      color: PopKartAppColor.white,
+              SizedBox(height: 40.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 40.0),
+                child: Text(
+                  "New Password",
+                  style: style,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40.0, right: 25.0),
+                child: TextFormField(
+                  obscureText: _newPasswordVisible,
+                  cursorColor: PopKartAppColor.white,
+                  style: TextStyle(color: PopKartAppColor.white),
+                  controller: _newPasswordEditingController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please new enter password';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: PopKartAppColor.white),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        _newPasswordVisible = !_newPasswordVisible;
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Text(
-                "Confirm New Password",
-                style: style,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0, right: 25.0),
-              child: TextFormField(
-                obscureText: _confirmNewPasswordVisible,
-                cursorColor: PopKartAppColor.white,
-                style: TextStyle(color: PopKartAppColor.white),
-                controller: _confirmNewPasswordEditingController,
-                validator: (val) {
-                  if (val!.isEmpty) return 'Please enter confirm password';
-                  if (val != _newPasswordEditingController.text)
-                    return 'Password don\'t match';
-                  return null;
-                },
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: PopKartAppColor.white),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: PopKartAppColor.white),
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _confirmNewPasswordVisible
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                      color: PopKartAppColor.white,
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: PopKartAppColor.white),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        _confirmNewPasswordVisible =
-                            !_confirmNewPasswordVisible;
-                      });
-                    },
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _newPasswordVisible
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: PopKartAppColor.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _newPasswordVisible = !_newPasswordVisible;
+                        });
+                      },
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 30.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  _validateInputs();
-                },
-                child: Text("Save Changes"),
-                style: ElevatedButton.styleFrom(
-                  elevation: 2.0,
-                  shape: StadiumBorder(),
-                  padding: EdgeInsets.all(18),
-                  primary: PopKartAppColor.greenBlue,
-                  // <-- Button color
-                  onPrimary: PopKartAppColor.black, // <-- Splash color
+              SizedBox(height: 20.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 40.0),
+                child: Text(
+                  "Confirm New Password",
+                  style: style,
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 40.0, right: 25.0),
+                child: TextFormField(
+                  obscureText: _confirmNewPasswordVisible,
+                  cursorColor: PopKartAppColor.white,
+                  style: TextStyle(color: PopKartAppColor.white),
+                  controller: _confirmNewPasswordEditingController,
+                  validator: (val) {
+                    if (val!.isEmpty) return 'Please enter confirm password';
+                    if (val != _newPasswordEditingController.text)
+                      return 'Password don\'t match';
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: PopKartAppColor.white),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: PopKartAppColor.white),
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _confirmNewPasswordVisible
+                            ? Icons.visibility_outlined
+                            : Icons.visibility_off_outlined,
+                        color: PopKartAppColor.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _confirmNewPasswordVisible =
+                              !_confirmNewPasswordVisible;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    _validateInputs();
+                  },
+                  child: Text("Save Changes"),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 2.0,
+                    shape: StadiumBorder(),
+                    padding: EdgeInsets.all(18),
+                    primary: PopKartAppColor.greenBlue,
+                    // <-- Button color
+                    onPrimary: PopKartAppColor.black, // <-- Splash color
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

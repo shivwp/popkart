@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/features/grocery_list_creation/presentation/ui/pages/grocery_list_creation.dart';
 
 class GroceryListPage extends StatefulWidget {
   const GroceryListPage({Key? key}) : super(key: key);
@@ -35,11 +34,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (ctx) => GroceryListCreation(),
-                  ));
+              debugPrint("Add new grocery lists");
             },
             child: Container(
               margin: EdgeInsets.only(right: 20),

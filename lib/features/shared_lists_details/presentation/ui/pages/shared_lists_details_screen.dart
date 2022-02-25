@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/features/grocery_list_creation/presentation/ui/pages/grocery_list_creation.dart';
 import 'package:popkart/features/shared_members/presentation/ui/pages/shared_members_screen.dart';
 
 class SharedListsDetailsPage extends StatefulWidget {
@@ -50,13 +49,7 @@ class _SharedListsDetailsPageState extends State<SharedListsDetailsPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (ctx) => GroceryListCreation(),
-                  ));
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.add,
               size: 30.0,
@@ -143,6 +136,7 @@ class _SharedListsDetailsPageState extends State<SharedListsDetailsPage> {
                 style:
                     TextStyle(color: PopKartAppColor.lightBlue, fontSize: 13.0),
               )),
+
           Padding(
             padding: const EdgeInsets.only(left: 170.0),
             child: Stack(

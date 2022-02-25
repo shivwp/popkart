@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/core/widgets/gradient_container.dart';
-import 'package:popkart/core/widgets/rounded_container.dart';
 import 'package:popkart/features/auth/sign_in_sign_up/presentation/ui/sign_in_sign_up_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,10 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: PopKartAppColor.lightBlue,
-        body: RoundedContainer(
-          child: Center(
-            child: Image.asset('assets/images/pop_kart_logo.png'),
-          ),
+        body: Center(
+          child: Image.asset('assets/images/pop_kart_logo.png'),
         ));
   }
 }

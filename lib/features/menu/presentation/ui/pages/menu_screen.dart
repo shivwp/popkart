@@ -1,11 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/features/grocery_list_creation/presentation/ui/pages/grocery_list_creation.dart';
 import 'package:popkart/features/menu_favorites/presentation/ui/pages/favorites_screen.dart';
 import 'package:popkart/features/menu_my_lists/presentation/ui/pages/my_lists_screen.dart';
 import 'package:popkart/features/menu_shared_lists/presentation/ui/pages/shared_lists_screen.dart';
-import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -35,13 +33,7 @@ class _MenuPageState extends State<MenuPage> {
           ),
           actions: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (ctx) => GroceryListCreation(),
-                    ));
-              },
+              onPressed: () {},
               icon: Icon(
                 Icons.add,
                 size: 30.0,
@@ -52,14 +44,7 @@ class _MenuPageState extends State<MenuPage> {
                 badgeColor: PopKartAppColor.greenBlue,
                 badgeContent: null,
                 child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (ctx) => NotificationsPage(),
-                          ));
-                    },
-                    icon: Icon(Icons.notifications))),
+                    onPressed: () {}, icon: Icon(Icons.notifications))),
           ],
           bottom: TabBar(
             labelColor: PopKartAppColor.darkBlue,

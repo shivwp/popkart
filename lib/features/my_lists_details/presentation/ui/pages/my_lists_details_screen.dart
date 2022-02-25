@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/edit_item/presentation/ui/pages/edit_item_screen.dart';
-import 'package:popkart/features/grocery_list_creation/presentation/ui/pages/grocery_list_creation.dart';
 
 class MyListsDetailsPage extends StatefulWidget {
   const MyListsDetailsPage({Key? key}) : super(key: key);
@@ -41,13 +40,7 @@ class _MyListsDetailsPageState extends State<MyListsDetailsPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (ctx) => GroceryListCreation(),
-                  ));
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.add,
               size: 30.0,

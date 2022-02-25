@@ -40,6 +40,16 @@ dependencies:
   table_calendar: ^3.0.3
   flutter_time_picker_spinner: ^2.0.0
   badges: ^2.0.2
+  get: ^4.6.1
+  styled_widget:
+  flutter_svg:
+  injectable: ^1.5.0
+  get_it: ^7.2.0
+  logger: ^1.1.0
+  dio: ^4.0.4
+  json_annotation:
+  pretty_dio_logger: ^1.2.0-beta-1
+  flutter_easyloading: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +61,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-
+  build_runner: ^2.1.2
+  flutter_launcher_icons: ^0.9.2
+  injectable_generator: ^1.4.1
+  flutter_gen_runner: ^3.1.1
+  json_serializable:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

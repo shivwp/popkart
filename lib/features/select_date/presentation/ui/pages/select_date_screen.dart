@@ -4,7 +4,6 @@ import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/add_items/presentation/ui/pages/add_items_screen.dart';
 import 'package:popkart/features/add_items/presentation/ui/pages/no_items_screen.dart';
 import 'package:popkart/features/select_time/presentation/ui/pages/select_time_screen.dart';
-import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class SelectDatePage extends StatefulWidget {
@@ -76,13 +75,7 @@ class _SelectDatePageState extends State<SelectDatePage> {
               badgeColor: PopKartAppColor.greenBlue,
               badgeContent: null,
               child: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (ctx) => NotificationsPage(),
-                        ));
-                  }, icon: Icon(Icons.notifications))),
+                  onPressed: () {}, icon: Icon(Icons.notifications))),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70.0),

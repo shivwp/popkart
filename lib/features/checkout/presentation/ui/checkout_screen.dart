@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:badges/badges.dart';
-import 'package:popkart/features/grocery_list_creation/presentation/ui/pages/grocery_list_creation.dart';
-import 'package:popkart/features/settings_features/notifications/presentation/ui/pages/notifications_screen.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({Key? key}) : super(key: key);
@@ -44,13 +42,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (ctx) => GroceryListCreation(),
-                  ));
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.add,
               size: 30.0,
@@ -61,14 +53,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               badgeColor: PopKartAppColor.greenBlue,
               badgeContent: null,
               child: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (ctx) => NotificationsPage(),
-                        ));
-                  },
-                  icon: Icon(Icons.notifications))),
+                  onPressed: () {}, icon: Icon(Icons.notifications))),
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70.0),

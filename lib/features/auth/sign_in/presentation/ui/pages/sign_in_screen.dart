@@ -1,38 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/core/widgets/rounded_container.dart';
+import 'package:popkart/core/utils/globals.dart';
 import 'package:popkart/features/auth/forgot_password/presentation/ui/pages/forgot_password_screen.dart';
 import 'package:popkart/features/auth/reset_password/presentation/ui/pages/reset_password_screen.dart';
 import 'package:popkart/features/auth/sign_up/presentation/ui/pages/sign_up_screen.dart';
 import 'package:popkart/features/home/presentation/ui/pages/bottom_navigation_screen.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+import 'sign_in_controller.dart';
 
-  @override
-  _SignInPageState createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  late AutovalidateMode autovalidateMode;
-  late bool _passwordVisible;
-
-  @override
-  void initState() {
-    super.initState();
-    _passwordVisible = true;
-  }
-
+class SignInPage extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     TextStyle style = TextStyle(color: PopKartAppColor.white, fontSize: 17.0);
-    return Scaffold(
-      backgroundColor: PopKartAppColor.lightBlue,
-      body: RoundedContainer(
-        child: Form(
-          key: _formKey,
+    Get.put(getIt<SignInController>());
+    return GetBuilder<SignInController>(builder: (_) {
+      return Scaffold(
+        backgroundColor: PopKartAppColor.lightBlue,
+        body: Form(
+          key: controller.formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: ListView(
             children: [
@@ -55,6 +41,7 @@ class _SignInPageState extends State<SignInPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
+                  controller: controller.emailController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),
                   validator: (value) {
@@ -90,7 +77,8 @@ class _SignInPageState extends State<SignInPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
-                  obscureText: _passwordVisible,
+                  obscureText: controller.passwordVisible,
+                  controller: controller.passwordController,
                   cursorColor: PopKartAppColor.white,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -108,15 +96,15 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _passwordVisible
+                        controller.passwordVisible
                             ? Icons.visibility_outlined
                             : Icons.visibility_off_outlined,
                         color: PopKartAppColor.white,
                       ),
                       onPressed: () {
-                        setState(() {
-                          _passwordVisible = !_passwordVisible;
-                        });
+                        controller.passwordVisible =
+                            !controller.passwordVisible;
+                        controller.update();
                       },
                     ),
                   ),
@@ -155,78 +143,48 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height / 4.1),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Don\'t have an account? ",
-                        style: TextStyle(
-                            color: PopKartAppColor.white, fontSize: 14.0)),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (ctx) => SignUpPage(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(
-                            color: PopKartAppColor.greenBlue, fontSize: 14.0),
-                      ),
-                    )
-                  ],
+            ],
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Don\'t have an account? ",
+                  style:
+                      TextStyle(color: PopKartAppColor.white, fontSize: 14.0)),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => SignUpPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Sign up",
+                  style: TextStyle(
+                      color: PopKartAppColor.greenBlue, fontSize: 14.0),
                 ),
               )
             ],
           ),
         ),
-      ),
-      /*bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 25.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Don\'t have an account? ",
-                style: TextStyle(color: PopKartAppColor.white, fontSize: 14.0)),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (ctx) => SignUpPage(),
-                  ),
-                );
-              },
-              child: Text(
-                "Sign up",
-                style:
-                    TextStyle(color: PopKartAppColor.greenBlue, fontSize: 14.0),
-              ),
-            )
-          ],
-        ),
-      ),*/
-    );
+      );
+    });
   }
 
   void _validateInputs() {
-    if (_formKey.currentState!.validate()) {
+    if (controller.formKey.currentState!.validate()) {
       // If all data are correct then save data to the variables
-      _formKey.currentState!.save();
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) {
-        return BottomNavigationPage();
-      }));
+      controller.formKey.currentState!.save();
+      controller.signIn();
     } else {
       // If all data are not valid then start auto validation
-      setState(() {
-        autovalidateMode = AutovalidateMode.onUserInteraction;
-      });
+      controller.autovalidateMode = AutovalidateMode.onUserInteraction;
+      controller.update();
     }
   }
 }

@@ -41,16 +41,17 @@ class SignInController extends GetxController {
   void signIn() async {
     // call API  and if success
     EasyLoading.show();
-   await _repository.getlogin(emailController.text, passwordController.text).then((value) {
-     EasyLoading.dismiss();
+    await _repository
+        .getlogin("mp17govind96@gmail.com", "Govind@12345")
+        .then((value) {
+      EasyLoading.dismiss();
       if (value.status == true) {
         Navigator.pushReplacement(Get.context!,
             MaterialPageRoute(builder: (BuildContext context) {
-              return BottomNavigationPage();
-            }));
+          return BottomNavigationPage();
+        }));
       } else {
         Get.snackbar("fail", value.message!);
-
       }
     });
   }

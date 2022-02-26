@@ -41,7 +41,8 @@ class SignInPage extends GetView<SignInController> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
-                  controller: controller.emailController,
+                  initialValue: "mp17govind96@gmail.com",
+                  // controller: controller.emailController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),
                   validator: (value) {
@@ -77,8 +78,9 @@ class SignInPage extends GetView<SignInController> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
+                  initialValue: "Govind@12345",
                   obscureText: controller.passwordVisible,
-                  controller: controller.passwordController,
+                  // controller: controller.passwordController,
                   cursorColor: PopKartAppColor.white,
                   validator: (value) {
                     if (value!.isEmpty) {

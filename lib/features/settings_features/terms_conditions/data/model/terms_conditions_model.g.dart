@@ -9,9 +9,9 @@ part of 'terms_conditions_model.dart';
 TermsConditionsModel _$TermsConditionsModelFromJson(
         Map<String, dynamic> json) =>
     TermsConditionsModel(
-      json['status'] as bool,
-      json['message'] as String?,
-      json['data'] == null
+      status: json['status'] as bool?,
+      message: json['message'] as String?,
+      data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );

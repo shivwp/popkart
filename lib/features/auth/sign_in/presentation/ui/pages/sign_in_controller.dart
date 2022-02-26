@@ -51,7 +51,7 @@ class SignInController extends GetxController {
           return BottomNavigationPage();
         }));
       } else {
-        Get.snackbar("fail", value.message!);
+        Get.snackbar("Fail", value.message!);
       }
     });
   }

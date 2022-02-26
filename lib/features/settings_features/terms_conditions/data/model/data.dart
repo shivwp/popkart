@@ -7,13 +7,12 @@ class Data {
   int? id;
   String? title;
   String? content;
-
   String? createdAt;
   String? updatedAt;
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  Data({this.id, this.title, this.content, this.createdAt, this.updatedAt});
 
-  Data(this.id, this.title, this.content, this.createdAt, this.updatedAt);
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
   Map<String, dynamic> toJson() => _$DataToJson(this);
 }

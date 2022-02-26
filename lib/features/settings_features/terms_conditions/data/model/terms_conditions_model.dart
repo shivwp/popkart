@@ -6,11 +6,11 @@ part 'terms_conditions_model.g.dart';
 
 @JsonSerializable()
 class TermsConditionsModel {
-  bool status;
+  bool? status;
   String? message;
   Data? data;
 
-  TermsConditionsModel(this.status, this.message, this.data);
+  TermsConditionsModel({this.status, this.message, this.data});
 
   factory TermsConditionsModel.fromJson(Map<String, dynamic> json) =>
       _$TermsConditionsModelFromJson(json);

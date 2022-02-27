@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popkart/core/constants/app_colors.dart';
-import 'package:popkart/features/my_lists_details/presentation/ui/pages/my_lists_details_screen.dart';
-import 'package:popkart/features/shared_lists_details/presentation/ui/pages/shared_lists_details_screen.dart';
+import 'package:popkart/features/menu_shared_lists/presentation/ui/widgets/my_shared_screen.dart';
 
 class SharedListsPage extends StatefulWidget {
   const SharedListsPage({Key? key}) : super(key: key);
@@ -10,7 +9,11 @@ class SharedListsPage extends StatefulWidget {
   _SharedListsPageState createState() => _SharedListsPageState();
 }
 
-class _SharedListsPageState extends State<SharedListsPage> {
+class _SharedListsPageState extends State<SharedListsPage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  String buttonTapKey = 'my_story';
   List<String> name = <String>[
     "Piter Walker",
     "Alex Morgin",
@@ -18,9 +21,131 @@ class _SharedListsPageState extends State<SharedListsPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(vsync: this, length: 2);
+    _tabController.addListener(_handleTabSelection);
+  }
+
+  void _handleTabSelection() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Scaffold(
+      body: ListView(
+        children: [
+          SizedBox(height: 15.0),
+          DefaultTabController(
+            length: 2,
+            initialIndex: 0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                TabBar(
+                    controller: _tabController,
+                    labelColor: Colors.white,
+                    indicatorColor: Colors.white,
+                    unselectedLabelColor: Colors.black54,
+                    labelStyle: TextStyle(fontSize: 17.0),
+                    indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: PopKartAppColor.lightBlue),
+                    indicatorWeight: 1.0,
+                    isScrollable: true,
+                    tabs: [
+                      Container(
+                          height: 50.0,
+                          width: 150.0,
+                          child: Tab(text: "My Shared")),
+                      Container(
+                          height: 50.0,
+                          width: 150.0,
+                          child: Tab(text: "Others Shared")),
+                    ]),
+                Container(
+                  height: 600.0,
+                  child: TabBarView(children: [
+                    // Content of Timeline Tab
+                    MySharedPage(),
+                    Center(child: Text("Others Shared")),
+                  ]),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+/*   return ListView(
       children: [
+        SizedBox(height: 20.0),
+        Padding(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+          child: DefaultTextStyle(
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+              child: RoundedContainer(
+                  height: 50,
+                  child: Flex(direction: Axis.horizontal, children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                          alignment: Alignment.center,
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(8),
+                                bottomLeft: Radius.circular(8)),
+                            gradient: buttonTapKey == 'my_shared'
+                                ? PopKartAppColor.welcomeGradient
+                                : LinearGradient(colors: [
+                                    Color(0xFF949494),
+                                    Color(0xFFDEDEDE)
+                                  ]),
+                          ),
+                          child: Text(
+                            'My Shared',
+                            textAlign: TextAlign.center,
+                          )).gestures(onTap: () {
+                        setState(() {
+                          buttonTapKey = 'my_shared';
+                        });
+                      }),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                          alignment: Alignment.center,
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(8),
+                                  bottomRight: Radius.circular(8)),
+                              gradient: buttonTapKey == 'my_shared'
+                                  ? LinearGradient(colors: [
+                                      Color(0xFF949494),
+                                      Color(0xFFDEDEDE)
+                                    ])
+                                  : PopKartAppColor.welcomeGradient),
+                          child: Text(
+                            'Other Shared',
+                            textAlign: TextAlign.center,
+                          )).gestures(onTap: () {
+                        setState(() {
+                          buttonTapKey = 'other shared';
+                        });
+                      }),
+                    )
+                  ]))),
+        ),
+       */ /* SizedBox(height: 20.0),
         Container(
           child: ListView.separated(
             shrinkWrap: true,
@@ -135,7 +260,7 @@ class _SharedListsPageState extends State<SharedListsPage> {
                                       ),
                                     ),
 
-                                    /*      new Container(
+                                    */ /**/ /*      new Container(
                                         // width: double.infinity,
                                         decoration: new BoxDecoration(
                                             borderRadius: BorderRadius.circular(25.0),
@@ -185,11 +310,11 @@ class _SharedListsPageState extends State<SharedListsPage> {
                                               size: 36.0,
                                               color: const Color.fromRGBO(
                                                   218, 165, 32, 1.0))),
-                                    )*/
+                                    )*/ /**/ /*
                                   ],
                                 ),
 
-                                /* Stack(
+                                */ /**/ /* Stack(
                                   children: [
                                     Image.asset(
                                       "assets/images/female.png",
@@ -207,7 +332,7 @@ class _SharedListsPageState extends State<SharedListsPage> {
                                       ),
                                     ),
                                   ],
-                                )*/
+                                )*/ /**/ /*
                               ],
                             ),
                           ),
@@ -242,8 +367,9 @@ class _SharedListsPageState extends State<SharedListsPage> {
               );
             },
           ),
-        ),
+        ),*/ /*
       ],
     );
   }
 }
+*/

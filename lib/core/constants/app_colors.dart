@@ -13,4 +13,6 @@ class PopKartAppColor {
   static const appbar= Color(0xFF34A1FF);
   static const lightGrey=Color(0xFFF2F2F2);
   static const green=Color(0xFF1A892B);
+  static const Gradient welcomeGradient = LinearGradient(
+      colors: [Color(0xFF3484D9), Color(0xFF2F8CDD), Color(0xFF00D2FF)]);
 }

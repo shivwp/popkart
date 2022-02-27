@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
 import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/features/settings/presentation/ui/pages/settings_screen.dart';
 import 'package:popkart/features/settings_features/terms_conditions/presentation/ui/pages/terms_conditions_controller.dart';
@@ -18,6 +19,8 @@ class _TermsConditionsPageState extends State<TermsConditionsPage> {
   Widget build(BuildContext context) {
     Get.put(getIt<TermsConditionsController>());
     return GetBuilder<TermsConditionsController>(builder: (controller) {
+      var termsData = parse(controller.termsData.data?.content);
+      String parsedString = parse(termsData.body!.text).documentElement!.text;
       return Scaffold(
         backgroundColor: PopKartAppColor.white,
         appBar: AppBar(
@@ -60,8 +63,7 @@ class _TermsConditionsPageState extends State<TermsConditionsPage> {
             Padding(
               padding: const EdgeInsets.only(left: 14.0),
               child: Text(
-                "Hello",
-                // controller.termsData.data!.title!,
+                controller.termsData.data!.title!,
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Color(0xff003893),
@@ -72,8 +74,7 @@ class _TermsConditionsPageState extends State<TermsConditionsPage> {
             Padding(
               padding: const EdgeInsets.all(14.0),
               child: Text(
-               // "Hello",
-                controller.termsData.data!.title!,
+                parsedString,
                 strutStyle: StrutStyle(
                   fontFamily: 'Roboto',
                   fontSize: 15,

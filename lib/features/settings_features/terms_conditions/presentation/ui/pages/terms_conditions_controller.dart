@@ -7,10 +7,11 @@ import 'package:popkart/features/settings_features/terms_conditions/data/reposit
 
 @injectable
 class TermsConditionsController extends GetxController {
-  var termsData = TermsConditionsModel();
   TermsConditionsRepository _termsConditionsRepository;
 
   TermsConditionsController(this._termsConditionsRepository);
+
+  var termsData = TermsConditionsModel();
 
   @override
   void onInit() {
@@ -23,10 +24,8 @@ class TermsConditionsController extends GetxController {
     EasyLoading.show();
     await _termsConditionsRepository.getTermsConditions().then((value) {
       EasyLoading.dismiss();
-      // logger.d(value.message);
-
       if (value.status!) {
-        termsData == value;
+        termsData = value;
         update();
         // debugPrint(termsData.data!.title!);
         //debugPrint(termsData.message);

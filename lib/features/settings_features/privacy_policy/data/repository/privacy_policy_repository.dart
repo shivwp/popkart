@@ -1,22 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:popkart/core/network/api_constants.dart';
-import 'package:popkart/features/settings_features/terms_conditions/data/model/terms_conditions_model.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../../../../core/network/network_constants.dart';
+import '../model/privacy_policy_response.dart';
 
 @injectable
-class TermsConditionsRepository {
+class PrivacyPolicyRepository {
   var dio = Dio();
 
-  Future<TermsConditionsModel> getTermsConditions() async {
+  Future<PrivacyPolicyResponse> getpolicy() async {
     dio.interceptors.add(PrettyDioLogger());
 
     try {
-      final response = await dio.get(ApiConstants.BASE_URL + "terms_conditions",
+      final response = await dio.get(ApiConstants.BASE_URL + "privacy_policy",
           options: await HeaderNetWorkConstant.getOptionsWithOutToken());
-      return TermsConditionsModel.fromJson(response.data);
+      return PrivacyPolicyResponse.fromJson(response.data);
     } on DioError catch (e) {
       throw e;
     }

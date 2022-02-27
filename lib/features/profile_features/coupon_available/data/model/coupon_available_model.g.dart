@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'terms_conditions_model.dart';
+part of 'coupon_available_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TermsConditionsModel _$TermsConditionsModelFromJson(
+CouponAvailableModel _$CouponAvailableModelFromJson(
         Map<String, dynamic> json) =>
-    TermsConditionsModel(
+    CouponAvailableModel(
       status: json['status'] as bool?,
       message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : Data.fromJson(json['data'] as Map<String, dynamic>),
+      couponlist: (json['couponlist'] as List<dynamic>?)
+          ?.map((e) => CouponList.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
-Map<String, dynamic> _$TermsConditionsModelToJson(
-        TermsConditionsModel instance) =>
+Map<String, dynamic> _$CouponAvailableModelToJson(
+        CouponAvailableModel instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
-      'data': instance.data?.toJson(),
+      'couponlist': instance.couponlist?.map((e) => e.toJson()).toList(),
     };

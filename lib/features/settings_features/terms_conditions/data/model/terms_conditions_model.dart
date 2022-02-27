@@ -4,11 +4,11 @@ import 'data.dart';
 
 part 'terms_conditions_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class TermsConditionsModel {
-  bool? status;
-  String? message;
-  Data? data;
+  late bool? status;
+  late String? message;
+  late Data? data;
 
   TermsConditionsModel({this.status, this.message, this.data});
 

@@ -2,15 +2,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'data.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Data {
-  int? id;
-  String? title;
-  String? content;
-  String? createdAt;
-  String? updatedAt;
+  late int? id;
+  late String? title;
+  late String? content;
 
-  Data({this.id, this.title, this.content, this.createdAt, this.updatedAt});
+  Data({this.id, this.title, this.content});
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 

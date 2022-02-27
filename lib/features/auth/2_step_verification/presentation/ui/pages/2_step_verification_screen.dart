@@ -225,12 +225,7 @@ class _TwoStepVerificationPageState extends State<TwoStepVerificationPage> {
                       controller.formKey.currentState!.save();
 
                       controller.verifyOTP();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (ctx) => CreateProfilePage(),
-                        ),
-                      );
+
                     } else {
                       // If all data are not valid then start auto validation
                       setState(() {

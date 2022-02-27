@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -32,22 +34,44 @@ class OnetimePasswordController extends GetxController {
 
   verifyOTP() async {
     // EasyLoading.show();
-    Navigator.push(
-      Get.context!,
-      MaterialPageRoute(
-        builder: (ctx) => ResetPasswordPage(),
-      ),
-    );
+    // Navigator.push(
+    //   Get.context!,
+    //   MaterialPageRoute(
+    //     builder: (ctx) => ResetPasswordPage(),
+    //   ),
+    // );
+
+    logger.d("asdasdasd${Get.arguments}");
+    logger.d("asdasdasd${otp1Controller.text.trim() +
+        otp2Controller.text.trim() +
+        otp3Controller.text.trim() +
+        otp4Controller.text.trim() +
+        otp5Controller.text.trim() +
+        otp6Controller.text.trim()}");
+
+
+    if (Get.arguments.toString() ==
+        otp1Controller.text.trim() +
+            otp2Controller.text.trim() +
+            otp3Controller.text.trim() +
+            otp4Controller.text.trim() +
+            otp5Controller.text.trim() +
+            otp6Controller.text.trim()) {
+      Timer(Duration(seconds: 1), () {
+        Navigator.push(
+          Get.context!,
+          MaterialPageRoute(
+            builder: (ctx) => ResetPasswordPage(),
+          ),
+        );
+      });
+    }else{
+      Get.snackbar("error", "OTP doesn't match");
+    }
+
     // await _onetimePasswordRepository.verifyOTP(Get.arguments).then((value) {
     //   EasyLoading.dismiss();
-    //   if (value.status==true) {
-    //     Navigator.push(
-    //       Get.context!,
-    //       MaterialPageRoute(
-    //         builder: (ctx) => ResetPasswordPage(),
-    //       ),
-    //     );
-    //   }
+    //   if (value.status == true) {}
     //   Get.snackbar("", value.status!);
     // });
   }

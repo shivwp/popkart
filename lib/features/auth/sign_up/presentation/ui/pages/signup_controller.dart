@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -7,6 +9,7 @@ import 'package:popkart/features/auth/sign_in/data/model/sign_in_model/sign_in_r
 
 import '../../../../../../core/utils/globals.dart';
 import '../../../../2_step_verification/presentation/ui/pages/2_step_verification_screen.dart';
+import '../../../../sign_in/presentation/ui/pages/sign_in_screen.dart';
 import '../../../data/repository/sign_up_repository.dart';
 
 typedef signinResponse = SignInResponse;
@@ -49,12 +52,14 @@ class SignUpController extends GetxController {
         signinResponse == value;
         update();
         Get.snackbar("", value.message!);
-        Navigator.push(
-          Get.context!,
-          MaterialPageRoute(
-            builder: (ctx) => const TwoStepVerificationPage(),
-          ),
-        );
+        Get.offAll(SignInPage());
+        // Get.off(TwoStepVerificationPage(),arguments: signinResponse);
+        // Navigator.push(
+        //   Get.context!,
+        //   MaterialPageRoute(
+        //     builder: (ctx) => const TwoStepVerificationPage(),
+        //   ),
+        // );
       } else {
         Get.snackbar("Error", value.message!);
       }

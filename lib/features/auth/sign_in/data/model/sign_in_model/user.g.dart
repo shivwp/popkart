@@ -7,22 +7,22 @@ part of 'user.dart';
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
-      json['id'] as int?,
-      json['firstName'] as String?,
-      json['lastName'] as String?,
-      json['email'] as String?,
-      json['status'] as String?,
-      json['userProfile'],
-      json['dob'],
-      json['phone'],
-      json['emailVerifiedAt'],
-      json['wallet'],
-      json['fcmToken'],
-      json['isApproved'] as int?,
-      json['vendorWallet'] as int?,
-      json['userWallet'] as int?,
-      json['createdAt'] as String?,
-      json['updatedAt'] as String?,
+      id: json['id'] as int?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
+      email: json['email'] as String?,
+      status: json['status'] as String?,
+      userProfile: json['userProfile'],
+      dob: json['dob'],
+      phone: json['phone'],
+      emailVerifiedAt: json['emailVerifiedAt'],
+      wallet: json['wallet'],
+      fcmToken: json['fcmToken'],
+      isApproved: json['isApproved'] as int?,
+      vendorWallet: json['vendorWallet'] as int?,
+      userWallet: json['userWallet'] as int?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{

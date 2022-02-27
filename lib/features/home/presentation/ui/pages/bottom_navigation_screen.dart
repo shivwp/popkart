@@ -7,14 +7,14 @@ import 'package:popkart/features/menu/presentation/ui/pages/menu_screen.dart';
 import 'package:popkart/features/profile/presentation/ui/pages/profile_screen.dart';
 
 class BottomNavigationPage extends StatefulWidget {
-  const BottomNavigationPage({Key? key}) : super(key: key);
+  int? currentIndex = 0;
+   BottomNavigationPage({Key? key, this.currentIndex}) : super(key: key);
 
   @override
   _BottomNavigationPageState createState() => _BottomNavigationPageState();
 }
 
 class _BottomNavigationPageState extends State<BottomNavigationPage> {
-  int _currentIndex = 0;
   final List<Widget> _children = [
     HomePage(),
     MenuPage(),
@@ -23,20 +23,20 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
   void onTabTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      widget.currentIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_currentIndex],
+      body: _children[widget.currentIndex!],
       bottomNavigationBar: Container(
         // height: 80,
         child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             onTap: onTabTapped,
-            currentIndex: _currentIndex,
+            currentIndex: widget.currentIndex!,
             selectedItemColor: PopKartAppColor.appbar,
             unselectedItemColor: Colors.grey,
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),

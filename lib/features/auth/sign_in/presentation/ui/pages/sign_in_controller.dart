@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+import 'package:popkart/core/storage/app_preference.dart';
+import 'package:popkart/features/auth/sign_in/data/model/sign_in_model/user.dart';
 
 import '../../../../../../core/utils/globals.dart';
 import '../../../../../home/presentation/ui/pages/bottom_navigation_screen.dart';
@@ -44,9 +48,13 @@ class SignInController extends GetxController {
    await _repository.getlogin(emailController.text, passwordController.text).then((value) {
      EasyLoading.dismiss();
       if (value.status == true) {
+        AppPrefernces.putString(AppPrefernces.LOGIN_PREF,jsonEncode(value.user));
+        AppPrefernces.putString(AppPrefernces.TOKEN,value.token!);
+        
+
         Navigator.pushReplacement(Get.context!,
             MaterialPageRoute(builder: (BuildContext context) {
-              return BottomNavigationPage();
+              return BottomNavigationPage(currentIndex: 0,);
             }));
       } else {
         Get.snackbar("fail", value.message!);

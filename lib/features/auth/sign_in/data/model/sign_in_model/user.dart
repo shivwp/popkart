@@ -25,7 +25,7 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  User(this.id, this.firstName, this.lastName, this.email, this.status, this.userProfile, this.dob, this.phone, this.emailVerifiedAt, this.wallet, this.fcmToken, this.isApproved, this.vendorWallet, this.userWallet, this.createdAt, this.updatedAt);
+  User({this.id, this.firstName, this.lastName, this.email, this.status, this.userProfile, this.dob, this.phone, this.emailVerifiedAt, this.wallet, this.fcmToken, this.isApproved, this.vendorWallet, this.userWallet, this.createdAt, this.updatedAt});
 
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }

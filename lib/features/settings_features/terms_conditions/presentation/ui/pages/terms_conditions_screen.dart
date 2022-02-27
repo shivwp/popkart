@@ -72,8 +72,8 @@ class _TermsConditionsPageState extends State<TermsConditionsPage> {
             Padding(
               padding: const EdgeInsets.all(14.0),
               child: Text(
-                "Hello",
-                //controller.termsData.data!.title!,
+               // "Hello",
+                controller.termsData.data!.title!,
                 strutStyle: StrutStyle(
                   fontFamily: 'Roboto',
                   fontSize: 15,

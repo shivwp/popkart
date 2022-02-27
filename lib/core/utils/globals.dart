@@ -4,6 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:get/get.dart';
 import '../injectable/injectable_init.dart';
 import '../network/network_constants.dart';
+import '../storage/app_preference.dart';
 
 
 
@@ -15,5 +16,7 @@ final getIt = GetIt.instance;
 final logger = Logger();
 Future<String> initGlobalConfigs() async {
   configureDependencies();
+  await AppPrefernces.getInstance();
+
   return '';
 }

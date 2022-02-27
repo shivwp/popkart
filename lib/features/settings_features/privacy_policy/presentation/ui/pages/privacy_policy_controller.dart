@@ -24,8 +24,8 @@ class PrivacyPolicyController extends GetxController {
     _policyRepository.getpolicy().then((value) {
       EasyLoading.dismiss();
       if (value.status == true) {
-        update();
         policyresponse = value;
+        update();
       }
     });
   }

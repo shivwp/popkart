@@ -51,6 +51,8 @@ dependencies:
   pretty_dio_logger: ^1.2.0-beta-1
   flutter_easyloading: ^3.0.3
   html: ^0.15.0
+  shared_preferences: ^2.0.13
+
 
 dev_dependencies:
   flutter_test:

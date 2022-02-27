@@ -249,7 +249,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       _formKey.currentState!.save();
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) {
-        return BottomNavigationPage();
+        return BottomNavigationPage(currentIndex: 2,);
       }));
     } else {
       // If all data are not valid then start auto validation

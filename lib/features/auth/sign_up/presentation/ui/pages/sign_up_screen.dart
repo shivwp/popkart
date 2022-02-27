@@ -14,12 +14,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
-
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -113,6 +110,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter password';
+                    } else if (value.length < 8) {
+                      return 'Password must be 8 character';
                     }
                     return null;
                   },
@@ -134,7 +133,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          controller.passwordVisible = !controller.passwordVisible;
+                          controller.passwordVisible =
+                              !controller.passwordVisible;
                         });
                       },
                     ),
@@ -177,9 +177,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         color: PopKartAppColor.white,
                       ),
                       onPressed: () {
-                          controller.confirmPasswordVisible = !controller.confirmPasswordVisible;
-                          controller.update();
-
+                        controller.confirmPasswordVisible =
+                            !controller.confirmPasswordVisible;
+                        controller.update();
                       },
                     ),
                   ),
@@ -197,10 +197,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       shape: CircleBorder(),
                       activeColor: PopKartAppColor.white,
                       onChanged: (bool? value) {
-
-                          controller.isChecked = value!;
-                          controller.update();
-
+                        controller.isChecked = value!;
+                        controller.update();
                       },
                     ),
                     Text(
@@ -224,8 +222,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller.signUp();
                     } else {
                       // If all data are not valid then start auto validation
-                        controller.autovalidateMode = AutovalidateMode.onUserInteraction;
-                        controller.update();
+                      controller.autovalidateMode =
+                          AutovalidateMode.onUserInteraction;
+                      controller.update();
                     }
                   },
                   child: Text("Sign up"),
@@ -271,6 +270,4 @@ class _SignUpPageState extends State<SignUpPage> {
       );
     });
   }
-
-
 }

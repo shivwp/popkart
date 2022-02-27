@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
+import '../storage/app_preference.dart';
 import 'api_constants.dart';
 
 class HeaderNetWorkConstant {
@@ -32,12 +33,15 @@ class HeaderNetWorkConstant {
         });
   }
 
-  //GETwithouttoken
+  //GETwithToken
+
   static Future<Options> getOptionsWithToken({
     String accept = 'application/json',
     int sendTimeout = 60000,
     int receiveTimeout = 60000,
   }) async {
+    final token = await AppPrefernces.getString(AppPrefernces.TOKEN);
+
     return Options(
         sendTimeout: sendTimeout,
         receiveTimeout: receiveTimeout,

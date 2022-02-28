@@ -50,7 +50,7 @@ class SignUpController extends GetxController {
       if (value.status == true) {
         signinResponse == value;
         update();
-        Get.snackbar("", value.message!);
+        Get.snackbar("", value.message!, snackPosition: SnackPosition.BOTTOM);
         Get.offAll(SignInPage());
         // Get.off(TwoStepVerificationPage(),arguments: signinResponse);
         // Navigator.push(
@@ -64,7 +64,7 @@ class SignUpController extends GetxController {
             snackPosition: SnackPosition.BOTTOM);
       }
     }).catchError((error) {
-      Get.snackbar("Error", error);
+      Get.snackbar("Error", error, snackPosition: SnackPosition.BOTTOM);
     });
   }
 }

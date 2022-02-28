@@ -108,8 +108,12 @@ class _SignUpPageState extends State<SignUpPage> {
                   obscureText: controller.passwordVisible,
                   controller: controller.passwordEditingController,
                   validator: (value) {
+                    RegExp regex = RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
                     if (value!.isEmpty) {
                       return 'Please enter password';
+                    } else if (!regex.hasMatch(value)) {
+                      return 'Enter one capital letter & one special symbol';
                     } else if (value.length < 8) {
                       return 'Password must be 8 character';
                     }

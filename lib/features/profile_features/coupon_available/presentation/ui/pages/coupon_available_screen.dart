@@ -108,7 +108,7 @@ class _CouponAvailablePageState extends State<CouponAvailablePage> {
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              Image.network("assets/images/barcode.png"),
+                              Image.asset("assets/images/barcode.png"),
                             ],
                           ),
                         );

@@ -45,8 +45,8 @@ class SignInController extends GetxController {
   void signIn() async {
     // call API  and if success
     EasyLoading.show();
-    await _repository
-        .getlogin(emailController.text, passwordController.text)
+    await _repository.getlogin("anil.shah@gmail.com", "Govind@123")
+        // .getlogin(emailController.text, passwordController.text)
         .then((value) {
       EasyLoading.dismiss();
       if (value.status == true) {
@@ -61,7 +61,8 @@ class SignInController extends GetxController {
           );
         }));
       } else {
-        Get.snackbar("Fail", value.message!);
+        Get.snackbar("Fail", value.message!,
+            snackPosition: SnackPosition.BOTTOM);
       }
     });
   }

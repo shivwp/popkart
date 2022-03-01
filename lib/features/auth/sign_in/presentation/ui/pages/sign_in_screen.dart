@@ -41,8 +41,8 @@ class SignInPage extends GetView<SignInController> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
-                  initialValue: "anil.shah@gmail.com",
-                  // controller: controller.emailController,
+                  //initialValue: "anil.shah@gmail.com",
+                  controller: controller.emailController,
                   cursorColor: Colors.white,
                   style: TextStyle(color: Colors.white),
                   validator: (value) {
@@ -78,9 +78,9 @@ class SignInPage extends GetView<SignInController> {
               Padding(
                 padding: const EdgeInsets.only(left: 40.0, right: 25.0),
                 child: TextFormField(
-                  initialValue: "Govind@123",
+                  //initialValue: "Govind@123",
                   obscureText: controller.passwordVisible,
-                  //controller: controller.passwordController,
+                  controller: controller.passwordController,
                   cursorColor: PopKartAppColor.white,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -156,7 +156,7 @@ class SignInPage extends GetView<SignInController> {
               Text("Don\'t have an account? ",
                   style:
                       TextStyle(color: PopKartAppColor.white, fontSize: 14.0)),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,

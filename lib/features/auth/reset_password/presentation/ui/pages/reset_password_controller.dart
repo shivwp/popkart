@@ -16,7 +16,9 @@ class ResetPasswordController extends GetxController {
   ResetPasswordRepository _passwordRepository;
 
   ResetPasswordController(this._passwordRepository);
-var user = User();
+
+  var user = User();
+
   @override
   void onInit() {
     user = User.fromJson(
@@ -40,7 +42,7 @@ var user = User();
           return SignInPage();
         }));
       }
-      Get.snackbar("", value.message!);
+      Get.snackbar("", value.message!, snackPosition: SnackPosition.BOTTOM);
     });
   }
 }

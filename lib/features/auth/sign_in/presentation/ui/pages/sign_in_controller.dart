@@ -44,9 +44,10 @@ class SignInController extends GetxController {
 
   void signIn() async {
     // call API  and if success
+    //.getlogin("anil.shah@gmail.com", "Govind@123")
     EasyLoading.show();
-    await _repository.getlogin("anil.shah@gmail.com", "Govind@123")
-        // .getlogin(emailController.text, passwordController.text)
+    await _repository
+        .getlogin(emailController.text, passwordController.text)
         .then((value) {
       EasyLoading.dismiss();
       if (value.status == true) {

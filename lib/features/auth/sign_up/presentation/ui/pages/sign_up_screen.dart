@@ -14,6 +14,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool checkboxValue = false;
+
   @override
   void initState() {
     super.initState();
@@ -190,7 +192,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(height: 15.0),
-              Padding(
+              /*  Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: Row(
                   children: [
@@ -213,6 +215,61 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     )
                   ],
+                ),
+              ),
+              SizedBox(height: 20.0)*/
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: FormField<bool>(
+                  builder: (state) {
+                    return Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Checkbox(
+                                value: checkboxValue,
+                                activeColor: PopKartAppColor.white,
+                                checkColor: PopKartAppColor.black,
+                                fillColor:
+                                    MaterialStateProperty.resolveWith(getColor),
+                                shape: CircleBorder(),
+                                onChanged: (value) {
+                                  setState(() {
+//save checkbox value to variable that store terms and notify form that state changed
+                                    checkboxValue = value!;
+                                    state.didChange(value);
+                                  });
+                                }),
+                            Text(
+                              "I agree with Privacy Policy",
+                              style: TextStyle(
+                                color: PopKartAppColor.white,
+                                fontSize: 14.0,
+                              ),
+                            )
+                          ],
+                        ),
+//display error in matching theme
+                        Padding(
+                          padding: const EdgeInsets.only(right: 160.0),
+                          child: Text(
+                            state.errorText ?? '',
+                            style: TextStyle(
+                              color: Theme.of(context).errorColor,
+                            ),
+                          ),
+                        )
+                      ],
+                    );
+                  },
+//output from validation will be displayed in state.errorText (above)
+                  validator: (value) {
+                    if (!checkboxValue) {
+                      return 'You need to accept terms';
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
               ),
               SizedBox(height: 20.0),
@@ -253,7 +310,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Text("Already have an account? ",
                   style:
                       TextStyle(color: PopKartAppColor.white, fontSize: 14.0)),
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,

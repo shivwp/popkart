@@ -42,13 +42,8 @@ class OnetimePasswordController extends GetxController {
     // );
 
     logger.d("asdasdasd${Get.arguments}");
-    logger.d("asdasdasd${otp1Controller.text.trim() +
-        otp2Controller.text.trim() +
-        otp3Controller.text.trim() +
-        otp4Controller.text.trim() +
-        otp5Controller.text.trim() +
-        otp6Controller.text.trim()}");
-
+    logger.d(
+        "asdasdasd${otp1Controller.text.trim() + otp2Controller.text.trim() + otp3Controller.text.trim() + otp4Controller.text.trim() + otp5Controller.text.trim() + otp6Controller.text.trim()}");
 
     if (Get.arguments.toString() ==
         otp1Controller.text.trim() +
@@ -65,8 +60,9 @@ class OnetimePasswordController extends GetxController {
           ),
         );
       });
-    }else{
-      Get.snackbar("error", "OTP doesn't match");
+    } else {
+      Get.snackbar("error", "OTP doesn't match",
+          snackPosition: SnackPosition.BOTTOM);
     }
 
     // await _onetimePasswordRepository.verifyOTP(Get.arguments).then((value) {

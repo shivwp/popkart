@@ -35,13 +35,12 @@ class ForgetpasswordController extends GetxController {
         .then((value) {
       EasyLoading.dismiss();
       if (value.status == true) {
-
         Get.off(() => OneTimePasswordPage(), arguments: value.token!);
       }
-      Get.snackbar("", value.message!);
+      Get.snackbar("", value.message!, snackPosition: SnackPosition.BOTTOM);
     }).catchError((e) {
       EasyLoading.dismiss();
-      Get.snackbar("error", e);
+      Get.snackbar("error", e, snackPosition: SnackPosition.BOTTOM);
     });
   }
 }

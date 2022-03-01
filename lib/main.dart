@@ -4,9 +4,6 @@ import 'package:popkart/core/constants/app_colors.dart';
 import 'package:popkart/core/utils/globals.dart';
 import 'package:popkart/features/splash_screen/presentation/ui/pages/splash_screen.dart';
 
-import 'features/auth/sign_in/presentation/ui/pages/sign_in_screen.dart';
-import 'features/settings_features/privacy_policy/presentation/ui/pages/privacy_policy_screen.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initGlobalConfigs();
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:  SignInPage());
+        home: SplashScreen());
   }
 }
 

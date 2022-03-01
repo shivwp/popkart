@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -9,12 +7,8 @@ import 'package:meta/meta.dart';
 
 import '../../../../../create_profile/presentation/ui/pages/create_profile_screen.dart';
 
-
 @Injectable()
 class TwoStepVerificationController extends GetxController {
-
-
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late AutovalidateMode autovalidateMode;
 
@@ -24,7 +18,6 @@ class TwoStepVerificationController extends GetxController {
   TextEditingController otp4Controller = TextEditingController();
   TextEditingController otp5Controller = TextEditingController();
   TextEditingController otp6Controller = TextEditingController();
-
 
   @override
   void onInit() {
@@ -40,7 +33,6 @@ class TwoStepVerificationController extends GetxController {
     //     otp5Controller.text.trim() +
     //     otp6Controller.text.trim()}");
 
-
     if (Get.arguments.toString() ==
         otp1Controller.text.trim() +
             otp2Controller.text.trim() +
@@ -54,8 +46,9 @@ class TwoStepVerificationController extends GetxController {
           builder: (ctx) => CreateProfilePage(),
         ),
       );
-    }else{
-      Get.snackbar("error", "OTP doesn't match");
+    } else {
+      Get.snackbar("error", "OTP doesn't match",
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
 }

@@ -19,4 +19,6 @@ class LoginParams {
 
 
   Map<String, dynamic> toJson() => _$LoginParamsToJson(this);
+
+
 }

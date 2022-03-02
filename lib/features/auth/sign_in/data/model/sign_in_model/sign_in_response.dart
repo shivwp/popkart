@@ -6,12 +6,12 @@ part 'sign_in_response.g.dart';
 
 @JsonSerializable()
 class SignInResponse {
-  late final bool status;
-  late final String? message;
-  late final String? token;
-  late final User? user;
+  late  bool? status;
+  late  String? message;
+  late  String? token;
+  late  User? user;
 
-  SignInResponse(this.status, this.message, this.token, this.user);
+  SignInResponse({this.status, this.message, this.token, this.user});
 
   factory SignInResponse.fromJson(Map<String, dynamic> json) =>
       _$SignInResponseFromJson(json);

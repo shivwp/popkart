@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_in_response.dart';
+part of 'reset_password_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SignInResponse _$SignInResponseFromJson(Map<String, dynamic> json) =>
-    SignInResponse(
+ResetPasswordResponse _$ResetPasswordResponseFromJson(
+        Map<String, dynamic> json) =>
+    ResetPasswordResponse(
       status: json['status'] as bool?,
-      message: json['message'] as String?,
-      token: json['token'] as String?,
       user: json['user'] == null
           ? null
           : User.fromJson(json['user'] as Map<String, dynamic>),
+      message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$SignInResponseToJson(SignInResponse instance) =>
+Map<String, dynamic> _$ResetPasswordResponseToJson(
+        ResetPasswordResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
-      'message': instance.message,
-      'token': instance.token,
       'user': instance.user,
+      'message': instance.message,
     };
